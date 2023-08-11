@@ -1,12 +1,17 @@
 <h1>All Movie Lists</h1>
 
-<ul>
+</div>
+
+</div>
+
+<div class="banner" style="background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)), <%= cl_image_tag @list.photo.key, height: 300, width: 400, crop: :fill %>;">
+  <div class="container">
   <% @lists.each do |list| %>
-<li>
-  <%= link_to list.name, list_path(list) %>
-</li>
+    <h1><%= link_to list.name, list_path(list) %></h1>
   <% end %>
-</ul>
+    <a class="btn btn-flat" href="#">See list</a>
+  </div>
+</div>
 
 <div>
   <%= link_to "Add a new list", new_list_path %>
