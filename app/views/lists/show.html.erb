@@ -1,22 +1,27 @@
 <h1><%= @list.name %></h1>
 
-<ul>
-<% @list.bookmarks.each do |bookmark| %>
-  <li><%= bookmark.movie.title %>
-  <%= link_to '🗑️',
+<div>
+  <%= link_to "Add a movie", new_list_bookmark_path(@list) %>
+</div>
+
+<div class="card-trip">
+  <img src="https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/greece.jpg" />
+  <div class="card-trip-infos">
+    <div>
+    <% @list.bookmarks.each do |bookmark| %>
+      <h2><%= bookmark.movie.title %></h2>
+      <%= link_to '🗑️',
         bookmark_path(bookmark),
         data: { turbo_method: :delete, turbo_confirm: "Are you sure?" },
-        class: 'btn btn-danger'
+        class: 'btn btn-success'
       %>
-  <%= bookmark.movie.overview %></li>
-</ul>
-<% end %>
+      <p><%= bookmark.movie.overview %></p>
+      <% end %>
+    </div>
+  <%= cl_image_tag @bookmark.photo.key, height: 300, width: 400, crop: :fill %>
+  </div>
+</div>
 
 <div>
   <%= link_to "Back to lists", lists_path %>
-</div>
-
-
-<div>
-  <%= link_to "Add a movie", new_list_bookmark_path(@list) %>
 </div>
