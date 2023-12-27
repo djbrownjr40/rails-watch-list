@@ -1,13 +1,13 @@
 
-<div class="col-12 col-sm-12 col-md-4 col-lg-4 col-xl-3 col-xxl-3 card bg-light sticky-top">
-  <h1>add a new list</h1>
+<div style="margin-left: 10px; margin-top: 10px;" class="col-12 col-sm-12 col-md-4 col-lg-4 col-xl-3 col-xxl-3 card bg-light sticky-top">
+  <h1>Add a new curation</h1>
   <%= simple_form_for @list do |f| %>
     <%= f.input :name, required: true %>
     <%= f.input :photo, as: :file %>
-    <%= f.button :submit, "publish your list" %>
+    <%= f.button :submit, "Add your curation", class: 'btn btn-black' %>
   <% end %>
 </div>
-<div>
-  <%= link_to "<- Back to lists", lists_path %>
-</div>
 
+<div style="margin-left: 10px; margin-top: 10px;">
+  <%= link_to "Back to curations", lists_path, class: 'btn btn-black' %>
+</div>
